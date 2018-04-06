@@ -1,0 +1,524 @@
+Lbl M
+ClrHome 
+Menu("Num of Pop Params","1",O,"2",T1,"Exit",E)
+
+Lbl E
+ClrHome 
+Stop 
+
+Lbl T1
+Menu("Choose:","2 proportions",R1,"2 means (independ)",R2,"2 means (depend)",R3,"Main Menu",M
+
+Lbl O
+Menu("Choose:","Proportion",P1,"Pop Mean",P2,"Pop Mean σ Known",P3,"Main Menu",M
+
+"label R's are for 2 pop parameters
+Lbl R3
+Disp "You should have already"
+Disp "entered the data in List 1"
+Disp "1 for yes, 0 for no"
+Input "Exit? ",A
+If A=1
+Then
+ClrHome
+Stop
+Else 
+ClrHome
+DelVar A
+End
+mean(L₁)→X
+stdDev(L₁)→Y
+Disp "H: µ = 0"
+Disp "H1: µ _ 0"
+Disp "1) ≠"
+Disp "2) <"
+Disp "3) >"
+Input "Enter 1, 2, or 3: ",S
+If S=1
+Then 
+Disp "µ ≠ 0"
+"µ ≠ 0"→Str1 
+End 
+If S=2
+Then 
+Disp "µ ≠ 0"
+"µ < 0"→Str1 
+End 
+If S=3
+Then 
+Disp "µ ≠ 0"
+"µ > 0"→Str1 
+End 
+ClrHome
+Disp "Step 1"
+Disp "µ ≠ 0"
+Disp Str1 
+Disp "Step 2"
+Disp "Step 2"
+Disp "α = 0.~~"
+Input "α = ",C
+ClrHome
+dim(L₁)→N
+X/(Y/√(N))→T
+Disp "Step 1" 
+Disp "µ ≠ 0"
+Disp Str1 
+Disp "Step 2"
+Disp "α = "+toString(C) 
+Disp "Step 3"
+Disp " = "+toString(round(X,4))+" s = "+toString(round(Y,4))+"  n = "+toString(N)
+Disp "DF = "+toString(N-1)
+Disp "t = "+toString(round(T,4))
+Pause 
+ClrHome
+DelVar A 
+DelVar B 
+DelVar S 
+DelVar Z 
+DelVar C 
+DelVar X 
+DelVar N
+DelVar M 
+DelVar U
+DelVar T
+DelVar J
+DelVar K
+DelVar Y
+DelVar G
+DelVar H
+DelVar F
+DelVar D
+DelVar Str1 
+DelVar Str2 
+DelVar Str3 
+Goto M
+
+Lbl R2
+ClrHome 
+Disp "Step 1"
+Disp "µ₁ is group 1"
+Disp "µ₂ is group 2"
+Disp "µ₁ - µ₂ = 0"
+Disp "µ₁ - µ₂ _ 0"
+Disp "1) ≠"
+Disp "2) <"
+Disp "3) >"
+Input "Enter 1, 2, or 3: ",S
+If S=1
+Then 
+Disp "µ₁ - µ₂ ≠ 0"
+"µ₁ - µ₂ ≠ 0"→Str1 
+End 
+If S=2
+Then 
+Disp "µ₁ - µ₂ ≠ 0"
+"µ₁ - µ₂ < 0"→Str1 
+End 
+If S=3
+Then 
+"µ₁ - µ₂ > 0"→Str1 
+End 
+ClrHome 
+Disp "Step 1"
+Disp "µ₁ - µ₂ = 0"
+Disp Str1 
+Disp "Step 2"
+Disp "α = 0.~~"
+Input "α = ",C
+Disp "α = "+toString(C)
+ClrHome 
+Disp "Step 1"
+Disp "µ₁ - µ₂ = 0"
+Disp Str1 
+Disp "Step 2"
+Disp "α = "+toString(C) 
+Disp "Step 3"
+Input "x₁ = ",J
+Input "x₂ = ",K
+Input "n₁ = ",G
+Input "n₂ = ",H
+Input "s₁ = ",D
+Input "s₂ = ",F
+J-K→Q
+(D*D)/G→W
+(F*F)/H→E
+√(W+E)→U
+Q/U→T 
+G-1→N
+H-1→M
+If N<M
+Then 
+"DF = "+toString(N)→Str3 
+Else
+"DF = "+toString(M)→Str3 
+End 
+ClrHome
+Disp "Step 1"
+Disp "µ₁ - µ₂ = 0"
+Disp Str1 
+Disp "Step 2"
+Disp "α = "+toString(C) 
+Disp "Step 3"
+Disp "t = "+toString(round(T,4))
+Disp Str3
+Pause 
+ClrHome
+DelVar A 
+DelVar B 
+DelVar S 
+DelVar Z 
+DelVar C 
+DelVar X 
+DelVar N
+DelVar M 
+DelVar U
+DelVar T
+DelVar J
+DelVar K
+DelVar Y
+DelVar G
+DelVar H
+DelVar F
+DelVar D
+DelVar Str1 
+DelVar Str2 
+DelVar Str3 
+Goto M
+
+
+
+Lbl R1
+ClrHome 
+Disp "Step 1"
+Disp "p₁ is group 1"
+Disp "p₂ is group 2"
+Disp "p₁ - p₂ = 0"
+Disp "p₁ - p₂ _ 0"
+Disp "1) ≠"
+Disp "2) <"
+Disp "3) >"
+Input "Enter 1, 2, or 3: ",S
+If S=1
+Then 
+Disp "p₁ - p₂ ≠ 0" 
+"p₁ - p₂ ≠ 0"→Str1 
+End 
+If S=2
+Then 
+Disp "p₁ - p₂ ≠ 0"
+"p₁ - p₂ < 0"→Str1 
+End 
+If S=3
+Then 
+Disp "p₁ - p₂ ≠ 0"
+"p₁ - p₂ > 0"→Str1 
+End 
+ClrHome 
+Disp "Step 1"
+Disp "p₁ - p₂ = 0"
+Disp Str1 
+Disp "Step 2"
+Disp "α = 0.~~"
+Input "α = ",C
+Disp "α = "+toString(C)
+ClrHome 
+Disp "Step 1"
+Disp "p₁ - p₂ = 0"
+Disp Str1 
+Disp "Step 2"
+Disp "α = "+toString(C) 
+Disp "Step 3"
+Input "x₁ = ",J
+Input "x₂ = ",K
+Input "n₁ = ",G
+Input "n₂ = ",H
+J/G→T
+K/H→Y
+(J+K)/(G+H)→U
+(T-Y)/(√(U*(1-U)*((1/G)+(1/H))))→Z
+ClrHome
+Disp "Step 1"
+Disp "p₁ - p₂ = 0"
+Disp Str1 
+Disp "Step 2"
+Disp "α = "+toString(C) 
+Disp "Step 3"
+Disp "₁ = "+toString(round(T,4))+"  ₂ = "+toString(round(Y,4))
+Disp "p = "+toString(round(U,4))
+Disp "z = "+toString(round(Z,4))
+Pause 
+ClrHome 
+DelVar A 
+DelVar B 
+DelVar S 
+DelVar Z 
+DelVar C 
+DelVar X 
+DelVar N 
+DelVar U
+DelVar T
+DelVar J
+DelVar K
+DelVar Y
+DelVar G
+DelVar H
+DelVar Str1 
+DelVar Str2 
+DelVar Str3 
+Goto M
+
+
+"label P's are for 1 pop parameter
+Lbl P3
+ClrHome 
+Disp "Step 1"
+Disp "H: µ = µ₀"
+Input "µ₀ = ",U
+Disp "H₁: µ _ µ₀"
+Disp "1) ≠"
+Disp "2) <"
+Disp "3) >"
+Input "Enter 1, 2, or 3: ",S
+If S=1
+Then
+ClrHome 
+Disp "Step 1"
+Disp "H0: µ = "+toString(B)
+Disp "H1: µ ≠ "+toString(B)
+"H0: µ = "+toString(B)→Str1
+"H1: µ ≠ "+toString(B)→Str2
+End
+If S=2
+Then 
+ClrHome 
+Disp "Step 1"
+Disp "H0: µ = "+toString(B)
+Disp "H1: µ < "+toString(B)
+"H0: µ = "+toString(B)→Str1
+"H1: µ < "+toString(B)→Str2
+End
+If S=3
+Then 
+ClrHome 
+Disp "Step 1"
+Disp "H0: µ = "+toString(B)
+Disp "H1: µ > "+toString(B)
+"H0: µ = "+toString(B)→Str1
+"H1: µ > "+toString(B)→Str2
+End 
+Disp "Step 2"
+Disp "α = 0.~~"
+Input "α = ",C
+ClrHome
+"Re-display step 1 and step 2
+Disp "Step 1"
+Disp Str1
+Disp Str2
+Disp "Step 2"
+Disp "α = "+toString(C)
+Disp "Step 3"
+Input " = ",X
+Input "n = ",N
+Input "σ = ",S
+X-U→A
+S/√(N)→L
+A/L→T
+N-1→F
+Disp "("+toString(round(X,4))+"-"+toString(round(U,4))+")/("+toString(S)+"/√("+toString(N)+"))"
+Disp "t = "+toString(round(T,4))
+Disp "DF = "+toString(F)
+Pause 
+ClrHome
+Disp "Step 1"
+Disp Str1
+Disp Str2
+Disp "Step 2"
+Disp "α = "+toString(C)
+Disp "Step 3"
+Disp "t = "+toString(round(T,4))
+Disp "DF = "+toString(F)
+Pause 
+DelVar A 
+DelVar B 
+DelVar S 
+DelVar Z 
+DelVar C 
+DelVar X 
+DelVar N 
+DelVar U
+DelVar T
+DelVar F
+DelVar Str1 
+DelVar Str2 
+DelVar Str3 
+Goto M
+
+
+Lbl P2
+ClrHome 
+Disp "Step 1"
+Disp "H: µ = µ₀"
+Input "µ₀ = ",U
+Disp "H₁: µ _ µ₀"
+Disp "1) ≠"
+Disp "2) <"
+Disp "3) >"
+Input "Enter 1, 2, or 3: ",S
+If S=1
+Then
+ClrHome 
+Disp "Step 1"
+Disp "H0: µ = "+toString(B)
+Disp "H1: µ ≠ "+toString(B)
+"H0: µ = "+toString(B)→Str1
+"H1: µ ≠ "+toString(B)→Str2
+End
+If S=2
+Then 
+ClrHome 
+Disp "Step 1"
+Disp "H0: µ = "+toString(B)
+Disp "H1: µ < "+toString(B)
+"H0: µ = "+toString(B)→Str1
+"H1: µ < "+toString(B)→Str2
+End
+If S=3
+Then 
+ClrHome 
+Disp "Step 1"
+Disp "H0: µ = "+toString(B)
+Disp "H1: µ > "+toString(B)
+"H0: µ = "+toString(B)→Str1
+"H1: µ > "+toString(B)→Str2
+End 
+Disp "Step 2"
+Disp "α = 0.~~"
+Input "α = ",C
+ClrHome
+"Re-display step 1 and step 2
+Disp "Step 1"
+Disp Str1
+Disp Str2
+Disp "Step 2"
+Disp "α = "+toString(C)
+Disp "Step 3"
+Input " = ",X
+Input "n = ",N
+Input "s = ",S
+X-U→A
+S/√(N)→L
+A/L→T
+N-1→F
+Disp "("+toString(round(X,4))+"-"+toString(round(U,4))+")/("+toString(S)+"/√("+toString(N)+"))"
+Disp "t = "+toString(round(T,4))
+Disp "DF = "+toString(F)
+Pause 
+ClrHome
+Disp "Step 1"
+Disp Str1
+Disp Str2
+Disp "Step 2"
+Disp "α = "+toString(C)
+Disp "Step 3"
+Disp "t = "+toString(round(T,4))
+Disp "DF = "+toString(F)
+Pause 
+DelVar A 
+DelVar B 
+DelVar S 
+DelVar Z 
+DelVar C 
+DelVar X 
+DelVar N 
+DelVar U
+DelVar T
+DelVar F
+DelVar Str1 
+DelVar Str2 
+DelVar Str3 
+Goto M
+
+Lbl P1
+ClrHome 
+Disp "Step 1"
+Disp "H: P = P₂"
+Input "P₀ = ",B
+Disp "H₁: P _ P₀"
+Disp "1) ≠"
+Disp "2) <"
+Disp "3) >"
+Input "Enter 1, 2, or 3: ",S
+If S=1
+Then
+ClrHome 
+Disp "Step 1"
+Disp "H0: P = "+toString(B)
+Disp "H1: P ≠ "+toString(B)
+"H0: P = "+toString(B)→Str1
+"H1: P ≠ "+toString(B)→Str2
+End
+If S=2
+Then 
+ClrHome 
+Disp "Step 1"
+Disp "H0: P = "+toString(B)
+Disp "H1: P < "+toString(B)
+"H0: P = "+toString(B)→Str1
+"H1: P < "+toString(B)→Str2
+End
+If S=3
+Then 
+ClrHome 
+Disp "Step 1"
+Disp "H0: P = "+toString(B)
+Disp "H1: P > "+toString(B)
+"H0: P = "+toString(B)→Str1
+"H1: P > "+toString(B)→Str2
+End 
+Disp "Step 2"
+Disp "α = 0.~~"
+Input "α = ",C
+ClrHome
+"Re-display step 1 and step 2
+Disp "Step 1"
+Disp Str1
+Disp Str2
+Disp "Step 2"
+Disp "α = "+toString(C)
+" start step 3 process
+Disp "Step 3"
+Input " = ",X
+Input "n = ",N
+X/N→P
+Disp " = "+toString(round(P,4))
+" = "+toString(round(P,4))→Str3
+Disp "(-P₂)/(√((P₂(1-P₂))/n))"
+P-B→T
+B*(1-B)→U
+T/(√(U/N))→Z
+round(Z,2)→Z
+Disp "Z = "+toString(Z)
+Pause 
+ClrHome
+"display all the steps
+Disp "Step 1" 
+Disp Str1 
+Disp Str2 
+Disp "Step 2"
+Disp "α = "+toString(C)
+Disp "Step 3"
+Disp Str3
+Disp toString(round(T,4))+"/(√(("+toString(round(U,4))+"/"+toString(N)+"))"
+Disp "Z = "+toString(Z)
+Pause 
+DelVar A 
+DelVar B 
+DelVar S 
+DelVar Z 
+DelVar C 
+DelVar X 
+DelVar N 
+DelVar Str1 
+DelVar Str2 
+DelVar Str3 
+Goto M
